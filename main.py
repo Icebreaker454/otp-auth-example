@@ -10,6 +10,7 @@ def create_app(config):
     """ Factory function for creating an app instance """
     app = FastAPI()
     register_routers(app, config)
+    register_middleware(app, config)
     return app
 
 
