@@ -11,7 +11,7 @@ from auth.pwd_context import get_password_hash
 from db.base_model import Base
 
 
-def get_totp_secret():
+def make_totp_secret():
     """ Function for generating a secret for TOTP algorithm """
     return pyotp.random_base32()
 
@@ -28,10 +28,10 @@ def make_identifier():
 class User(Base):
     """ A simple user model """
 
-    id = sa.Column(sa.String(), primary_key=True)
+    id = sa.Column(sa.Integer(), primary_key=True)
     username = sa.Column(sa.String(), nullable=False, index=True)
     password = sa.Column(sa.String(), nullable=False)
-    totp_secret = sa.Column(sa.String(), default=get_totp_secret, nullable=False)
+    totp_secret = sa.Column(sa.String(), default=make_totp_secret, nullable=False)
 
     def hash_password(self):
         """ Stores hashed password into DB instead of the raw one """
@@ -41,7 +41,7 @@ class User(Base):
 class LoginAttempt(Base):
     """ Describes a single registration attempt with an identifier """
 
-    id = sa.Column(sa.String(), primary_key=True)
+    id = sa.Column(sa.Integer(), primary_key=True)
     identifier = sa.Column(
         sa.String(), index=True, nullable=False, default=make_identifier
     )

@@ -7,36 +7,32 @@ import config
 from auth.exceptions import InvalidUserCredentials, InvalidOTP
 from auth.models import User, LoginAttempt
 from auth.pwd_context import verify_password
-from db.session import Session
 
 
 class LoginManager:
     """ Manager for the login process. Utilizes two-step TOTP checking """
 
-    def authenticate(self, username, password) -> Optional[User]:
+    def authenticate(self, session, username, password) -> Optional[User]:
         """ Fetches the user from DB and validates password """
-        session = Session()
         user = session.query(User).filter_by(username=username).first()
         if not user or not verify_password(password, user.password):
             return None
         return user
 
-    def login(self, username, password) -> LoginAttempt:
+    def login(self, session, username, password) -> LoginAttempt:
         """ Tries to log the user in """
 
-        user = self.authenticate(username, password)
+        user = self.authenticate(session, username, password)
         if not user:
             raise InvalidUserCredentials
 
-        session = Session()
         attempt = LoginAttempt(user=user)
         session.add(attempt)
         session.commit()
         return attempt
 
-    def verify_otp(self, identifier, code):
+    def verify_otp(self, session, identifier, code):
         """ Verifies OTP for a single login attempt """
-        session = Session()
         attempt = session.query(LoginAttempt).filter_by(identifier=identifier).first()
         conditions = [
             attempt,
