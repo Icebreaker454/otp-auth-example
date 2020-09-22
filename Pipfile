@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "*"
+uvicorn = "*"
+sqlalchemy = "*"
+alembic = "*"
+asyncpg = "*"
+black = "*"
+pyotp = "*"
+passlib = {extras = ["bcrypt"], version = "*"}
+
+[dev-packages]
+pytest = "*"
+black = "*"
+
+[pipenv]
+allow_prereleases = true
