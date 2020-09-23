@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from starlette.middleware.sessions import SessionMiddleware
 
-import config
-from auth.api import router as auth_api_router
-from core.middleware import register_common_errorhandler
-from db.middleware import db_session_middleware
+from otp_auth import config
+from otp_auth.auth.api import router as auth_api_router
+from otp_auth.core.middleware import register_common_errorhandler
+from otp_auth.db.middleware import db_session_middleware
 
 
 def create_app(config):

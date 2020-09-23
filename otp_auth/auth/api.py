@@ -6,11 +6,11 @@ from lxml import etree
 from qrcode.image.svg import SvgImage
 from starlette.requests import Request
 
-from auth.managers import LoginManager, TOTPManager
-from auth.models import User
-from auth.schemas import LoginIn, LoginOut, VerifyOTPIn, VerifyOTPOut
-from db.middleware import get_db
-from db.session import Session
+from otp_auth.auth.managers import LoginManager, TOTPManager
+from otp_auth.auth.models import User
+from otp_auth.auth.schemas import LoginIn, LoginOut, VerifyOTPIn, VerifyOTPOut
+from otp_auth.db.middleware import get_db
+from otp_auth.db.session import Session
 
 router = APIRouter()
 

@@ -1,4 +1,4 @@
-from core.exceptions import CommonError
+from otp_auth.core.exceptions import CommonError
 
 
 class InvalidUserCredentials(CommonError):
@@ -8,6 +8,6 @@ class InvalidUserCredentials(CommonError):
 
 
 class InvalidOTP(CommonError):
-    code = "inivalid_otp"
+    code = "invalid_otp"
     message = "The OTP provided is not valid"
     status = 401

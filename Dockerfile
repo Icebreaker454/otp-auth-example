@@ -20,4 +20,4 @@ WORKDIR /src
 
 EXPOSE 5000
 
-CMD uvicorn main:app --host 0.0.0.0 --port 5000 --log-level=debug
+CMD uvicorn otp_auth.main:app --host 0.0.0.0 --port 5000 --log-level=debug

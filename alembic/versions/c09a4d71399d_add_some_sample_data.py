@@ -8,8 +8,8 @@ Create Date: 2020-09-22 23:43:27.133070
 import sqlalchemy as sa
 from alembic import op
 
-from auth.models import make_totp_secret
-from auth.pwd_context import get_password_hash
+from otp_auth.auth.models import make_totp_secret
+from otp_auth.auth.pwd_context import get_password_hash
 
 # revision identifiers, used by Alembic.
 revision = "c09a4d71399d"

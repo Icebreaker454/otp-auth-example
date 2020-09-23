@@ -16,4 +16,4 @@ class VerifyOTPIn(BaseModel):
 
 
 class VerifyOTPOut(BaseModel):
-    access_token: str
+    status: str

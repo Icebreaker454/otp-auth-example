@@ -1,6 +1,6 @@
 from starlette.requests import Request
 
-from db.session import Session
+from otp_auth.db.session import Session
 
 
 async def db_session_middleware(request: Request, call_next):

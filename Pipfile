@@ -21,6 +21,10 @@ black = "*"
 ipython = "*"
 ipdb = "*"
 isort = "*"
+requests = "*"
+pytest-env = "*"
+pytest-cov = "*"
+pytest-spec = "*"
 
 [pipenv]
 allow_prereleases = true

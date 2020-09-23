@@ -3,10 +3,10 @@ from typing import Optional
 import pyotp
 import pyotp.totp
 
-import config
-from auth.exceptions import InvalidOTP, InvalidUserCredentials
-from auth.models import LoginAttempt, User
-from auth.pwd_context import verify_password
+from otp_auth import config
+from otp_auth.auth.exceptions import InvalidOTP, InvalidUserCredentials
+from otp_auth.auth.models import LoginAttempt, User
+from otp_auth.auth.pwd_context import verify_password
 
 
 class LoginManager:

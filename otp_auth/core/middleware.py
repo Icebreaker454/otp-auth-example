@@ -3,7 +3,7 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 from starlette.requests import Request
 
-from core.exceptions import CommonError
+from otp_auth.core.exceptions import CommonError
 
 
 def handle_common_error(request: Request, exc: CommonError):

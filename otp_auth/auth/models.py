@@ -6,9 +6,9 @@ import sqlalchemy as sa
 from sqlalchemy.event import listen
 from sqlalchemy.orm import relationship
 
-import config
-from auth.pwd_context import get_password_hash
-from db.base_model import Base
+from otp_auth import config
+from otp_auth.auth.pwd_context import get_password_hash
+from otp_auth.db.base_model import Base
 
 
 def make_totp_secret():
