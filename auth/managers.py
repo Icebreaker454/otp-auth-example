@@ -4,8 +4,8 @@ import pyotp
 import pyotp.totp
 
 import config
-from auth.exceptions import InvalidUserCredentials, InvalidOTP
-from auth.models import User, LoginAttempt
+from auth.exceptions import InvalidOTP, InvalidUserCredentials
+from auth.models import LoginAttempt, User
 from auth.pwd_context import verify_password
 
 

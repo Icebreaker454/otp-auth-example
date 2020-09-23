@@ -5,11 +5,11 @@ Revises: 1ea7e03e9d96
 Create Date: 2020-09-22 23:43:27.133070
 
 """
-from alembic import op
 import sqlalchemy as sa
+from alembic import op
+
 from auth.models import make_totp_secret
 from auth.pwd_context import get_password_hash
-
 
 # revision identifiers, used by Alembic.
 revision = "c09a4d71399d"

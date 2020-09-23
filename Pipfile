@@ -13,12 +13,14 @@ pyotp = "*"
 passlib = {extras = ["bcrypt"], version = "*"}
 qrcode = "*"
 lxml = "*"
+itsdangerous = "*"
 
 [dev-packages]
 pytest = "*"
 black = "*"
 ipython = "*"
 ipdb = "*"
+isort = "*"
 
 [pipenv]
 allow_prereleases = true

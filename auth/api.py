@@ -1,14 +1,16 @@
+import secrets
+
 import qrcode
 from fastapi import APIRouter, Depends, Response
 from lxml import etree
 from qrcode.image.svg import SvgImage
+from starlette.requests import Request
 
 from auth.managers import LoginManager, TOTPManager
 from auth.models import User
 from auth.schemas import LoginIn, LoginOut, VerifyOTPIn, VerifyOTPOut
 from db.middleware import get_db
 from db.session import Session
-
 
 router = APIRouter()
 
@@ -22,11 +24,12 @@ def login(login_meta: LoginIn, db: Session = Depends(get_db)):
 
 
 @router.post("/otp", response_model=VerifyOTPOut)
-def verify_otp(body: VerifyOTPIn, db: Session = Depends(get_db)):
+def verify_otp(request: Request, body: VerifyOTPIn, db: Session = Depends(get_db)):
     """ Verify OTP for a previous login attempt """
     mgr = LoginManager()
     mgr.verify_otp(db, body.identifier, body.code)
-    return {"access_token": "OK"}
+    request.session["access_token"] = secrets.token_hex(16)
+    return {"status": "OK"}
 
 
 @router.get("/otp/setup")

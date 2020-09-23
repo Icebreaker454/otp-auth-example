@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from starlette.middleware.sessions import SessionMiddleware
 
 import config
 from auth.api import router as auth_api_router
@@ -22,6 +23,7 @@ def register_routers(app: FastAPI, config):
 def register_middleware(app: FastAPI, config):
     """ Install some middleware """
     app.middleware("http")(db_session_middleware)
+    app.add_middleware(SessionMiddleware, secret_key=config.SECRET_KEY)
     register_common_errorhandler(app, config)
 
 
