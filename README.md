@@ -66,7 +66,7 @@ $ pipenv install --dev
 
 Run tests using the `pytest` command:
 ```
-$ pytest 
+$ pipenv run pytest 
 ```
 
 Basic code style is enforced via [Black](https://pypi.org/project/black/)
