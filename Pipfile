@@ -8,15 +8,17 @@ fastapi = "*"
 uvicorn = "*"
 sqlalchemy = "*"
 alembic = "*"
-asyncpg = "*"
 black = "*"
 pyotp = "*"
 passlib = {extras = ["bcrypt"], version = "*"}
-qrcode = {extras = ["pil"], version = "*"}
+qrcode = "*"
+lxml = "*"
 
 [dev-packages]
 pytest = "*"
 black = "*"
+ipython = "*"
+ipdb = "*"
 
 [pipenv]
 allow_prereleases = true
