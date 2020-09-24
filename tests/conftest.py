@@ -9,17 +9,17 @@ from otp_auth.main import app as _app
 from otp_auth.db.session import Session, engine
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def app(config):
     return _app
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def config():
     return app_config
 
 
-@pytest.fixture(scope='session', autouse=True)
+@pytest.fixture(scope="session", autouse=True)
 def db(app, config):
     Base.metadata.create_all(engine)
     yield Session()

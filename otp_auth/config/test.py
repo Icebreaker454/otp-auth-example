@@ -1,1 +1,1 @@
-SQLALCHEMY_DATABASE_URI = 'sqlite:///ferretgo.test.sqlite3'
+SQLALCHEMY_DATABASE_URI = "sqlite:///ferretgo.test.sqlite3"

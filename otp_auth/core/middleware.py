@@ -8,8 +8,7 @@ from otp_auth.core.exceptions import CommonError
 
 def handle_common_error(request: Request, exc: CommonError):
     """ Handles a `CommonError` raised """
-    return JSONResponse(status_code=exc.status,
-                        content=jsonable_encoder(exc.content()))
+    return JSONResponse(status_code=exc.status, content=jsonable_encoder(exc.content()))
 
 
 def register_common_errorhandler(app: FastAPI, config):

@@ -23,6 +23,7 @@ def valid_login_data(sample_user):
 
 class TestLogin:
     """ Test suite for login endpoint """
+
     url = "/auth/login"
 
     @pytest.mark.parametrize("invalid_creds_fixture", ("no_user", "invalid_password"))

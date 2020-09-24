@@ -39,7 +39,6 @@ def setup_otp(db: Session = Depends(get_db)):
     # Assume this user exists, it's just a test anyway
     user = db.query(User).filter_by(username="icebreaker").first()
 
-
     img = qrcode.make(TOTPManager(user).provision(), image_factory=SvgImage)
 
     rendered_svg = etree.tostring(img.get_image()).decode()
